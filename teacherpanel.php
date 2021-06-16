@@ -30,7 +30,6 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">Student ID</th>
       <th scope="col" class="text-center">Attendance</th>
     </tr>
   </thead>
@@ -49,11 +48,17 @@
                 <tr>
                     <th scope="row">1</th>
                     <td><?= $student['name'];?></td>
-                    <td><?= $student['student_id'];?></td>
                     <td>
-                        <div class="col-6 mx-auto d-flex justify-content-between">
-                            <input type="radio" name="attedance" id="" value="present">
-                            <input type="radio" name="attedance" id="" value="absent">
+                        <div class="col-6 mx-auto row">
+                        <div class="col-6 d-block h-auto attendance-val">
+                          <label for="present">Present</label>
+                          <input type="radio" name="<?="attendance-".$student['student_id'];?>" value="present">
+                        </div>
+                        <div class="col-6 d-block h-auto attendance-val">
+                          <label for="absent" class="text-center">Absent</label>
+                          <input type="radio" name="<?="attendance-".$student['student_id'];?>" value="absent">
+                        </div>
+                        
                         </div>
                     </td>
                 </tr>
@@ -62,7 +67,19 @@
         ?>
   </tbody>
     </table>
+    <button class="btn btn-outline-success" id="attendance">Submit attendance</button>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+  $("#attendance").click(() => {
+    let data = $(".attendance-val").children("input").get();
+    
+   /* data.forEach((data) => {
+      console.log($(`#${data}`).attr("name"));
+    })*/
+    console.log(data);
+  })
+</script>
 </html>
