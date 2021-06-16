@@ -1,13 +1,14 @@
 <?php
     namespace App\Controllers;
 
+    session_start();
     use PDO,PDOException;
 
     class Database{
         private $host = "127.0.0.1";
         private $password = "";
         private $user = "root";
-        private $db = "college_attendace";
+        private $db = "college_attendance";
 
         protected $DBHandler;
 

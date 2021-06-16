@@ -2,14 +2,16 @@
     include_once "./vendor/autoload.php";
 
     use App\Controllers\Student;
-    use App\Controllers\AttendanceController;
+    //use App\Controllers\AttendanceController;
+    use App\Controllers\Teachers;
     $student = new Student();
-    $attendance = new AttendanceController;
+    //$attendance = new AttendanceController;
 
-    /*$data = [
-        "name" => "Malik",
-        "class" => "primary 1"
+    $data = [
+        "name" => "Gabriel john",
+        "class" => "primary 2"
     ];
-    $student->createStudent($data);*/
-    $attendance->fetchAttendanceRecord("primary 1","1ebce490-27c4-6488-aa10-247703ae1c78");
+    //$class = "primary 2";
+    $student->createStudent($data);
+    //$attendance->updateAttendanceRecord($data);
 ?>

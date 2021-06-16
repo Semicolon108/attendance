@@ -14,7 +14,13 @@
         public function createStudent($data){
             $this->name = $data['name'];
             $this->studentId = Uuid::uuid6()->toString();
-            $this->attendance = [];
+            $this->attendance = [
+                "monday" => [],
+                "tuesday" => [],
+                "wednesday" => [],
+                "thursday" => [],
+                "friday" => []
+            ];
             $this->class = $data['class'];
 
             $sql = "INSERT INTO students (name,student_id,attendance,class) VALUE (?,?,?,?)";
