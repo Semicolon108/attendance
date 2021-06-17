@@ -44,7 +44,8 @@
         event.preventDefault();
         let data = new FormData();
         data.append("email",$("#email").val());
-        data.append("password",$("#password").val())
+        data.append("password",$("#password").val());
+        data.append("login",true);
         //console.log($("#email").val(),$("#password").val());
         $.ajax({
             url: "requestHandler.php",
@@ -56,6 +57,8 @@
             success: (response) => {
                 if(response == "success"){
                    window.location.href = "teacherpanel.php";
+                }else{
+                    window
                 }
             }
         })

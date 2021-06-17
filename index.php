@@ -1,5 +1,5 @@
 <?php
-    include_once "./vendor/autoload.php";
+   /* include_once "./vendor/autoload.php";
 
     use App\Controllers\Student;
     //use App\Controllers\AttendanceController;
@@ -13,5 +13,7 @@
     ];
     //$class = "primary 2";
     $student->createStudent($data);
-    //$attendance->updateAttendanceRecord($data);
+    //$attendance->updateAttendanceRecord($data);*/
+    $date = date_create_from_format("m-d-Y", "03-08-2020")->format("Y-M-D");
+    echo $date;
 ?>
