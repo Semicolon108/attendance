@@ -68,7 +68,7 @@
         }
 
         public function selectAttendanceDate(){
-            $sql = "SELECT date_of_attendance FROM attendance";
+            $sql = "SELECT date FROM attendance";
             $query = $this->connectDB()->query($sql);
             $res = $query->fetch();
             return $res;

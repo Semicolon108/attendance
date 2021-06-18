@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2021 at 09:14 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: Jun 18, 2021 at 11:39 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,8 +18,39 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `college_attendance`
+-- Database: `college_attendace`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assingment`
+--
+
+CREATE TABLE `assingment` (
+  `id` int(11) NOT NULL,
+  `assignment_id` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `deadline` varchar(255) NOT NULL,
+  `school_id` varchar(255) NOT NULL,
+  `teacher_id` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assingment_questions`
+--
+
+CREATE TABLE `assingment_questions` (
+  `id` int(11) NOT NULL,
+  `question` text NOT NULL,
+  `mark` varchar(255) NOT NULL,
+  `assingment_id` varchar(255) NOT NULL,
+  `answer_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -88,6 +119,18 @@ INSERT INTO `teacher` (`id`, `teachers_id`, `name`, `email`, `assinged_class`, `
 --
 
 --
+-- Indexes for table `assingment`
+--
+ALTER TABLE `assingment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `assingment_questions`
+--
+ALTER TABLE `assingment_questions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `attendance`
 --
 ALTER TABLE `attendance`
@@ -108,6 +151,18 @@ ALTER TABLE `teacher`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `assingment`
+--
+ALTER TABLE `assingment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `assingment_questions`
+--
+ALTER TABLE `assingment_questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `attendance`
