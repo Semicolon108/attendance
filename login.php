@@ -58,7 +58,7 @@
                 if(response == "success"){
                    window.location.href = "teacherpanel.php";
                 }else{
-                    window
+                    console.log(response);
                 }
             }
         })

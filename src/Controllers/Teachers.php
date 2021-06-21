@@ -11,6 +11,9 @@
         private $email;
         private $assingedClass;
         private $password;
+        private $schooldId;
+        private $toTeach;
+        private $classToTeach;
 
         public function login($data){
             $this->email = $data['email'];
@@ -31,10 +34,13 @@
             $this->email = $data['email'];
             $this->class = $data['class'];
             $this->password = $data['password'];
+            $this->schoolId = $data['school_id'];
+            $this->toTeach = implode(",",$data['to_teach']);
+            $this->classToTeach = implode(",",$data['class_to_teach']);
 
-            $sql = "INSERT INTO teacher (name,teachers_id,email,password,assinged_class) VALUE (?,?,?,?,?)";
+            $sql = "INSERT INTO teacher (name,teachers_id,email,password,assinged_class,school_id,subjects,class_to_teach) VALUE (?,?,?,?,?,?,?,?)";
             $prepStmt = $this->connectDB()->prepare($sql);
-            $exec = $prepStmt->execute([$this->name,$this->teacherId,$this->email,$this->password,$this->class]);
+            $exec = $prepStmt->execute([$this->name,$this->teacherId,$this->email,$this->password,$this->class,$this->schoolId,$this->toTeach,$this->classToTeach]);
             if($exec){
                 echo "Inserted successfully";
             }

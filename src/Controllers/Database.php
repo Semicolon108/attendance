@@ -8,7 +8,7 @@
         private $host = "127.0.0.1";
         private $password = "";
         private $user = "root";
-        private $db = "college_attendance";
+        private $db = "college_attendace";
 
         protected $DBHandler;
 

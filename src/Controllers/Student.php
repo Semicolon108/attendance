@@ -10,6 +10,7 @@
         private $studentId;
         private $attendance;
         private $class;
+        private $schoolId;
 
         public function createStudent($data){
             $this->name = $data['name'];
@@ -21,9 +22,10 @@
                 "thursday" => [],
                 "friday" => []
             ];
+            $this->schoolId = $data['school_id'];
             $this->class = $data['class'];
 
-            $sql = "INSERT INTO students (name,student_id,attendance,class) VALUE (?,?,?,?)";
+            $sql = "INSERT INTO students (name,student_id,attendance,class,school_id) VALUE (?,?,?,?,?)";
             $prepStmt = $this->connectDB()->prepare($sql);
             $exec = $prepStmt->execute([$this->name,$this->studentId,json_encode($this->attendance),$this->class]);
             if($exec){

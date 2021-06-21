@@ -3,6 +3,7 @@
 
     use App\Controllers\AttendanceController;
     use App\Controllers\Teachers;
+    use App\Controllers\Assingment;
 
     
     if(isset($_POST['login'])){
@@ -25,5 +26,10 @@
         ];
         $attendance = new AttendanceController;
         $attendance->createAttendance($data);
+    }
+
+    if(isset($_POST['draft-assignment'])){
+        $assignment = new Assingment;
+        $assignment->createAssignment($_POST);
     }
 ?>
